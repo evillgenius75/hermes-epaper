@@ -1,0 +1,7 @@
+## Managed components — same upstream libraries the proven
+## waveshare-airecorder project uses (Apache-2.0, from the ESP
+## component registry).
+dependencies:
+  espressif/button: "4.1.6"
+  espressif/esp_codec_dev: "~1.5.4"
+  espressif/cjson: "^1.7.18"

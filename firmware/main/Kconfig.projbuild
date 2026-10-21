@@ -1,0 +1,52 @@
+menu "Hermes ePaper"
+
+config EPAPER_WIFI_SSID
+    string "Wi-Fi SSID"
+    default ""
+
+config EPAPER_WIFI_PASSWORD
+    string "Wi-Fi password"
+    default ""
+
+config EPAPER_SERVER_URL
+    string "Gateway base URL (epaper adapter)"
+    default "http://192.168.1.10:8791"
+    help
+        Base URL of the epaper adapter, without a trailing slash.
+        Use https:// when the adapter is exposed beyond a trusted LAN.
+
+config EPAPER_DEVICE_TOKEN
+    string "Device token (Bearer)"
+    default ""
+    help
+        Must match EPAPER_DEVICE_TOKEN on the gateway.
+
+config EPAPER_DEVICE_ID
+    string "Device ID (sent as X-Device-Id; empty = derive from MAC)"
+    default ""
+
+config EPAPER_BLE_KEYBOARD
+    bool "BLE keyboard support (NimBLE HID host)"
+    default y
+    help
+        Enables the BLE HID keyboard host. Runtime cost is zero until a
+        keyboard is bonded or pairing is opened: the Bluetooth stack is
+        initialized lazily and deinitialized when unused. Disable to
+        build without the Bluetooth stack entirely.
+
+config EPAPER_WAKE_INTERVAL_S
+    int "Wake interval while asleep (seconds)"
+    default 900
+    range 60 86400
+
+config EPAPER_DISPLAY_SLEEP_S
+    int "Idle no-motion time before display sleep (seconds)"
+    default 180
+    range 0 86400
+
+config EPAPER_IDLE_SLEEP_S
+    int "Idle no-motion time before light sleep (seconds; 0 = never)"
+    default 1800
+    range 0 86400
+
+endmenu

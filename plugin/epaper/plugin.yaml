@@ -1,0 +1,32 @@
+name: epaper-platform
+label: ePaper
+kind: platform
+version: 0.1.0
+description: >
+  Hermes gateway adapter for the hermes-epaper device — a portable e-ink
+  chat client (Waveshare ESP32-S3-ePaper-3.97). Serves the device protocol
+  (docs/protocol.md) over HTTP(S) and queues agent output in a durable
+  outbox the battery-powered device drains by polling.
+author: hermes-epaper contributors
+requires_env:
+  - name: EPAPER_DEVICE_TOKEN
+    description: "Shared secret the device presents as a Bearer token"
+    prompt: "Device token"
+    password: true
+optional_env:
+  - name: EPAPER_HOME_CHANNEL
+    description: "Home chat id for cron delivery (epaper-<device_id>)"
+    prompt: "Home channel (device chat id)"
+    password: false
+  - name: EPAPER_PORT
+    description: "Port for the device-facing HTTP server (default 8791)"
+    prompt: "Port"
+    password: false
+  - name: EPAPER_BIND
+    description: "Bind address for the device server (default 0.0.0.0)"
+    prompt: "Bind address"
+    password: false
+  - name: EPAPER_ALLOWED_USERS
+    description: "Comma-separated user IDs allowed to use the device chat"
+    prompt: "Allowed users (comma-separated)"
+    password: false

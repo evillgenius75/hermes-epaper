@@ -1,0 +1,26 @@
+# ESP-IDF
+firmware/build/
+firmware/sdkconfig
+firmware/sdkconfig.old
+firmware/managed_components/
+firmware/dependencies.lock
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Plugin runtime state
+*.db
+*.db-journal
+*.sqlite*
+
+# Secrets / local config
+.env
+*.local.md
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
